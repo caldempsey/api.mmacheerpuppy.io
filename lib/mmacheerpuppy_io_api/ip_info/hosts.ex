@@ -26,8 +26,8 @@ defmodule MmacheerpuppyIoApi.IPInfo do
 
     with {:ok, ipinfo = %IPInfo{}} <-
            response
-           |> Jason.decode()
-           |> Map.get(:body) do
+           |> Map.get(:body)
+           |> Jason.decode() do
       ipinfo
     end
 
