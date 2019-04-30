@@ -20,11 +20,9 @@ defmodule MmacheerpuppyIoApi.IPInfo do
   def resolve_location(ipv4) when is_tuple(ipv4) do
     headers = [{"Accept", "application/json"}]
     params = [token: Application.get_env(:app_name, AppName.Endpoint)[:api_prefix]]
-    url = HTTPoison.get("ipinfo.io/" <> to_string(:inet.ntoa(ipv4)))
 
     response =
-      url
-      |> HTTPoison.get(headers, params: params)
+      HTTPoison.get("ipinfo.io/" <> to_string(:inet.ntoa(ipv4)), headers, params: params)
       |> Map.get(:body)
       |> Jason.decode()
 
