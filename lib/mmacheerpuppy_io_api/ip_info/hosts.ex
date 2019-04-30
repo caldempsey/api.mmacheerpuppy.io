@@ -22,9 +22,11 @@ defmodule MmacheerpuppyIoApi.IPInfo do
     headers = [{"Accept", "application/json"}]
     params = [token: Application.get_env(:app_name, AppName.Endpoint)[:api_prefix]]
 
-    with {:ok, response} <-
-           HTTPoison.get("ipinfo.io/" <> to_string(:inet.ntoa(ipv4)), headers, params: params) do
-      %IPInfo{} = response |> Map.get(:body) |> Jason.decode()
+    with {:ok, decoded_response} <-
+           HTTPoison.get("ipinfo.io/" <> to_string(:inet.ntoa(ipv4)), headers, params: params)
+           |> Map.get(:body)
+           |> Jason.decode() do
+      %IPInfo{} = decoded_response
     else
       _ -> :error
     end
