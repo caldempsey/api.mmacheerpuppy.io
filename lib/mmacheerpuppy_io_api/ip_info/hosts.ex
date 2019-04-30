@@ -23,8 +23,8 @@ defmodule MmacheerpuppyIoApi.IPInfo do
 
     response =
       HTTPoison.get("ipinfo.io/" <> to_string(:inet.ntoa(ipv4)), headers, params: params)
-      |> Map.get(:body)
       |> Jason.decode()
+      |> Map.get(:body)
 
     with {:ok, ipinfo = %IPInfo{}} <- response do
       ipinfo
