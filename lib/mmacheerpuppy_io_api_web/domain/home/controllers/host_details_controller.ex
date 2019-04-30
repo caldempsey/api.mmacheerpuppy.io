@@ -5,7 +5,7 @@ defmodule MmacheerpuppyIoApiWeb.HostDetailsController do
   def index(conn, _params) do
     render(conn, "index.json", %{
       data: %{
-        ip: to_string(:inet.ntoa(conn.remote_ip))
+        ip: MmacheerpuppyIoApi.IPInfo.resolve_location(conn.remote_ip)
       }
     })
   end

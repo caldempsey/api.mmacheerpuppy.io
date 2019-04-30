@@ -41,10 +41,7 @@ config :mmacheerpuppy_io_api, MmacheerpuppyIoApiWeb.Endpoint,
 config :mmacheerpuppy_io_api, MmacheerpuppyIoApiWeb.Endpoint,
   live_reload: [
     patterns: [
-      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"priv/gettext/.*(po)$",
-      ~r"lib/mmacheerpuppy_io_api_web/{live,views}/.*(ex)$",
-      ~r"lib/mmacheerpuppy_io_api_web/templates/.*(eex)$"
+      ~r"lib/mmacheerpuppy_io_api_web/{live,views}/.*(ex)$"
     ]
   ]
 
