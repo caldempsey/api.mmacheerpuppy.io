@@ -1,5 +1,6 @@
 defmodule MmacheerpuppyIoApi.IPInfo do
   alias MmacheerpuppyIoApi.IPInfo
+  @derive Jason.Encoder
   defstruct ip: "127.0.0.1", city: "Toronto", region: "Canada"
 
   @spec resolve_location(
