@@ -1,6 +1,6 @@
 defmodule MmacheerpuppyIoApi.IPInfo do
   alias MmacheerpuppyIoApi.IPInfo
-  @derive Jason.Encoder
+  @derive {Jason.Encoder, only: [:ip, :city, :region]
   defstruct ip: "127.0.0.1", city: "Toronto", region: "Canada"
 
   @spec resolve_location(
